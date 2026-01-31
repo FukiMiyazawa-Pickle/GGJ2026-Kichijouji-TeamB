@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7690092850357100445}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -480463447, guid: 9bca0c131294cbf4aa8cc27c9c36a7a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -108,6 +108,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterCtrl
   _moveSpeed: 5
+  _spriteRenderer: {fileID: 3885383073565553862}
+  _hideSprites:
+  - {fileID: -1673993540, guid: 9bca0c131294cbf4aa8cc27c9c36a7a6, type: 3}
+  - {fileID: 1063290106, guid: 9bca0c131294cbf4aa8cc27c9c36a7a6, type: 3}
+  - {fileID: -480463447, guid: 9bca0c131294cbf4aa8cc27c9c36a7a6, type: 3}
+  - {fileID: 1774214900, guid: 9bca0c131294cbf4aa8cc27c9c36a7a6, type: 3}
+  - {fileID: 1691289491, guid: 9bca0c131294cbf4aa8cc27c9c36a7a6, type: 3}
+  - {fileID: -1091089630, guid: 9bca0c131294cbf4aa8cc27c9c36a7a6, type: 3}
+  - {fileID: 1830456235, guid: 9bca0c131294cbf4aa8cc27c9c36a7a6, type: 3}
+  - {fileID: 1890390479, guid: 9bca0c131294cbf4aa8cc27c9c36a7a6, type: 3}
+  - {fileID: -1793257283, guid: 9bca0c131294cbf4aa8cc27c9c36a7a6, type: 3}
+  - {fileID: 1549878085, guid: 9bca0c131294cbf4aa8cc27c9c36a7a6, type: 3}
+  - {fileID: 402524454, guid: 9bca0c131294cbf4aa8cc27c9c36a7a6, type: 3}
+  - {fileID: -1456137782, guid: 9bca0c131294cbf4aa8cc27c9c36a7a6, type: 3}
+  - {fileID: 1720103414, guid: 9bca0c131294cbf4aa8cc27c9c36a7a6, type: 3}
+  - {fileID: -426548024, guid: 9bca0c131294cbf4aa8cc27c9c36a7a6, type: 3}
 --- !u!50 &6192531807330583074
 Rigidbody2D:
   serializedVersion: 5
@@ -208,6 +224,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 3cca11fb-9a6f-42ed-94fb-d75e387061ec
     m_ActionName: 'Seek/Attack[/Mouse/leftButton,/Keyboard/enter]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7758507114410652441}
+        m_TargetAssemblyTypeName: CharacterCtrl, Assembly-CSharp
+        m_MethodName: OnChange
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ccec3500-195f-4b8e-b31f-7eaadef0cb2a
+    m_ActionName: 'Hide/Change[/Keyboard/q]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hide
@@ -250,8 +282,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: -0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 4.22, y: 4.18}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
