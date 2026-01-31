@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &2723656589074985221
+--- !u!1001 &2937090049016280040
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,19 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1489938707969811820, guid: 8d7cb2464cb528e4ca03badd0d3b10b8, type: 3}
       propertyPath: m_Size.x
-      value: 1.9149803
+      value: 4.5286
       objectReference: {fileID: 0}
     - target: {fileID: 1489938707969811820, guid: 8d7cb2464cb528e4ca03badd0d3b10b8, type: 3}
       propertyPath: m_Size.y
-      value: 0.901615
+      value: 2.3399749
       objectReference: {fileID: 0}
     - target: {fileID: 1489938707969811820, guid: 8d7cb2464cb528e4ca03badd0d3b10b8, type: 3}
       propertyPath: m_Offset.x
-      value: 0.044273317
+      value: -0.022332907
       objectReference: {fileID: 0}
     - target: {fileID: 1489938707969811820, guid: 8d7cb2464cb528e4ca03badd0d3b10b8, type: 3}
       propertyPath: m_Offset.y
-      value: 0.48208642
+      value: 1.22
       objectReference: {fileID: 0}
     - target: {fileID: 2311372798895136929, guid: 8d7cb2464cb528e4ca03badd0d3b10b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -66,20 +66,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3654064175137759248, guid: 8d7cb2464cb528e4ca03badd0d3b10b8, type: 3}
       propertyPath: m_Name
-      value: Plante
+      value: Box2
       objectReference: {fileID: 0}
     - target: {fileID: 4659387316547420603, guid: 8d7cb2464cb528e4ca03badd0d3b10b8, type: 3}
       propertyPath: m_Size.x
-      value: 2.91
+      value: 4.43
       objectReference: {fileID: 0}
     - target: {fileID: 4659387316547420603, guid: 8d7cb2464cb528e4ca03badd0d3b10b8, type: 3}
       propertyPath: m_Size.y
-      value: 4.96
+      value: 5.16
       objectReference: {fileID: 0}
     - target: {fileID: 4659387316547420603, guid: 8d7cb2464cb528e4ca03badd0d3b10b8, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1830456235, guid: 9bca0c131294cbf4aa8cc27c9c36a7a6, type: 3}
+      objectReference: {fileID: 1720103414, guid: 9bca0c131294cbf4aa8cc27c9c36a7a6, type: 3}
     - target: {fileID: 4659387316547420603, guid: 8d7cb2464cb528e4ca03badd0d3b10b8, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1

@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3654064175137759248, guid: 8d7cb2464cb528e4ca03badd0d3b10b8, type: 3}
       propertyPath: m_Name
-      value: Pillow Variant
+      value: Pillow
       objectReference: {fileID: 0}
     - target: {fileID: 4659387316547420603, guid: 8d7cb2464cb528e4ca03badd0d3b10b8, type: 3}
       propertyPath: m_Size.x
@@ -79,7 +79,7 @@ PrefabInstance:
     - target: {fileID: 4659387316547420603, guid: 8d7cb2464cb528e4ca03badd0d3b10b8, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1830456235, guid: 9bca0c131294cbf4aa8cc27c9c36a7a6, type: 3}
+      objectReference: {fileID: 1890390479, guid: 9bca0c131294cbf4aa8cc27c9c36a7a6, type: 3}
     - target: {fileID: 4659387316547420603, guid: 8d7cb2464cb528e4ca03badd0d3b10b8, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
