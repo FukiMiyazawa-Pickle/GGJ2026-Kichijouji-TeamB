@@ -2,36 +2,59 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Windows;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class CharacterCtrl : MonoBehaviour
 {
+    [SerializeField] private Rigidbody2D _rb;
 	[SerializeField] private float _moveSpeed = 5f;
 	[SerializeField] private PlayerInput _playerInput;
-	[SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private int _hp = 3;
+    [SerializeField] private float _attackRange = 1.2f;
+    [SerializeField] private float _hitRadius = 0.4f;
+    [SerializeField] private LayerMask _enemyLayer;
+    [SerializeField] private Transform _attackPoint;
+    [SerializeField] private GameObject _attackEffectPrefab;
+    [SerializeField] private SpriteRenderer _spriteRenderer;
 	[SerializeField] private List<Sprite> _hideSprites;
 
-	public enum CharacterType
+    [SerializeField, Tooltip("再生中確認用")]
+    private string currentActionMapName;
+
+    public enum CharacterType
 	{
 		Hide = 0,	// 隠れる人
 		Seek,		// 鬼
 	}
 
 	private Vector3 velocity;
-	private Rigidbody2D rb;
 	private Vector2 moveInput;
 
-	private void Awake()
-	{
-		rb = GetComponent<Rigidbody2D>();
+    private Vector2 facingDirection = Vector2.right;
 
+    private void Awake()
+	{
 		Debug.Log($"CurrentAction：{_playerInput.currentActionMap}\n Active：{_playerInput.currentActionMap.enabled}");
 
 		ChangeRandomSprite();
     }
 
-	private void FixedUpdate()
+    private void Start()
+    {
+        if (_playerInput.currentActionMap != null)
+        {
+            currentActionMapName = _playerInput.currentActionMap.name;
+        }
+        else
+        {
+            currentActionMapName = "None";
+        }
+    }
+
+    private void FixedUpdate()
 	{
-		rb.linearVelocity = moveInput * _moveSpeed;
+        _rb.linearVelocity = moveInput * _moveSpeed;
 	}
 
 	private void ChangeRandomSprite()
@@ -46,15 +69,94 @@ public class CharacterCtrl : MonoBehaviour
 		_playerInput.SwitchCurrentActionMap(type == CharacterType.Hide ? "Hide" : "Seek");
 	}
 
-	// Input System
-	public void OnMove(InputAction.CallbackContext context)
+    private void Attack(Vector2 dir)
+    {
+        // Rigidbody2D.position を基準にする
+        Vector2 basePos = _rb.position;
+
+        // AttackPoint のローカル位置をワールド方向へ変換
+        Vector2 localOffset = _attackPoint.localPosition;
+        Vector2 worldOffset = transform.TransformDirection(localOffset);
+
+        // 最終的な攻撃中心
+        Vector2 attackCenter =
+            basePos +
+            worldOffset +
+            facingDirection * _attackRange;
+
+        // --- 当たり判定 ---
+        Collider2D[] hits = Physics2D.OverlapCircleAll(
+            attackCenter,
+            _hitRadius,
+            _enemyLayer
+        );
+
+        foreach (var hit in hits)
+        {
+            if(hit.gameObject == gameObject)
+            {
+                continue;
+            }
+            hit.GetComponent<CharacterCtrl>()?.TakeDamage(1);
+        }
+
+        SpawnAttackEffect(attackCenter, facingDirection, _hitRadius);
+    }
+
+    private void TakeDamage(int damage)
+    {
+        _hp--;
+
+        if(_hp <= 0)
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
+    private void SpawnAttackEffect(Vector2 center, Vector2 dir, float radius)
+    {
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        Quaternion rot = Quaternion.Euler(0f, 0f, angle);
+
+        GameObject effect = Instantiate(
+            _attackEffectPrefab,
+            new Vector3(center.x, center.y, 0f),
+            rot
+        );
+
+        SpriteRenderer sr = effect.GetComponent<SpriteRenderer>();
+        if (sr != null)
+        {
+            float diameter = radius * 2f;
+
+            // 半円サイズ（横半分）
+            sr.size = new Vector2(diameter, diameter);
+
+            // 半円を前方にずらす
+            effect.transform.position +=
+                (Vector3)(dir.normalized * radius * 0.5f);
+        }
+    }
+
+    // Input System
+    public void OnMove(InputAction.CallbackContext context)
 	{
 		moveInput = context.ReadValue<Vector2>();
-	}
+
+        if (moveInput.sqrMagnitude > 0.01f)
+        {
+            facingDirection = moveInput.normalized;
+        }
+    }
 
 	public void OnAttack(InputAction.CallbackContext context)
 	{
+        if (!context.performed)
+        {
+            return;
+        }
 
+        Attack(facingDirection);
 	}
 
 	public void OnChange(InputAction.CallbackContext context)
