@@ -46,16 +46,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36f2757a983150a44833de7815b8f16c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundManager
-  bgmSource: {fileID: 5058468639779592960}
-  seSource: {fileID: 1484212269676093257}
-  bgmList:
+  _bgmSource: {fileID: 5058468639779592960}
+  _seSource: {fileID: 1484212269676093257}
+  _bgmList:
   - tag: Title
-    clip: {fileID: 8300000, guid: 06ac9a31a8a565e4d94c65672a3ae859, type: 3}
-  - tag: InGame
-    clip: {fileID: 8300000, guid: 23133b682b0ce094a96ead6da36b7029, type: 3}
-  seList:
-  - tag: ResultJigle
-    clip: {fileID: 8300000, guid: b238e9be488b66f44bd42983516f9fcb, type: 3}
+    clip: {fileID: 8300000, guid: f476660e0d0c24d4089518b18286aeaf, type: 3}
+  _seList: []
 --- !u!82 &5058468639779592960
 AudioSource:
   m_ObjectHideFlags: 0
@@ -165,7 +161,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
