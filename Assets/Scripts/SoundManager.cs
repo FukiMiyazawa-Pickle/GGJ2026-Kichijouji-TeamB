@@ -14,12 +14,12 @@ public class SoundManager : MonoBehaviour
 	public static SoundManager Instance { get; private set; }
 
 	[Header("Audio Sources")]
-	[SerializeField] private AudioSource bgmSource;
-	[SerializeField] private AudioSource seSource;
+	[SerializeField] private AudioSource _bgmSource;
+	[SerializeField] private AudioSource _seSource;
 
 	[Header("Sound Data")]
-	[SerializeField] private SoundData[] bgmList;
-	[SerializeField] private SoundData[] seList;
+	[SerializeField] private SoundData[] _bgmList;
+	[SerializeField] private SoundData[] _seList;
 
 	private Dictionary<string, AudioClip> bgmDict;
 	private Dictionary<string, AudioClip> seDict;
@@ -42,7 +42,7 @@ public class SoundManager : MonoBehaviour
 		bgmDict = new Dictionary<string, AudioClip>();
 		seDict = new Dictionary<string, AudioClip>();
 
-		foreach (var data in bgmList)
+		foreach (var data in _bgmList)
 		{
 			if (!bgmDict.ContainsKey(data.tag))
 				bgmDict.Add(data.tag, data.clip);
@@ -50,7 +50,7 @@ public class SoundManager : MonoBehaviour
 				Debug.LogWarning($"BGMÉ^ÉOèdï°: {data.tag}");
 		}
 
-		foreach (var data in seList)
+		foreach (var data in _seList)
 		{
 			if (!seDict.ContainsKey(data.tag))
 				seDict.Add(data.tag, data.clip);
@@ -68,11 +68,11 @@ public class SoundManager : MonoBehaviour
 			return;
 		}
 
-		if (bgmSource.clip == clip) return;
+		if (_bgmSource.clip == clip) return;
 
-		bgmSource.clip = clip;
-		bgmSource.loop = loop;
-		bgmSource.Play();
+		_bgmSource.clip = clip;
+		_bgmSource.loop = loop;
+		_bgmSource.Play();
 	}
 
 	// ===== SE =====
@@ -84,6 +84,6 @@ public class SoundManager : MonoBehaviour
 			return;
 		}
 
-		seSource.PlayOneShot(clip);
+		_seSource.PlayOneShot(clip);
 	}
 }
