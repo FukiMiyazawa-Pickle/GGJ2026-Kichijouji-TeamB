@@ -6,8 +6,15 @@ using UnityEngine.InputSystem;
 public class CharacterCtrl : MonoBehaviour
 {
 	[SerializeField] private float _moveSpeed = 5f;
+	[SerializeField] private PlayerInput _playerInput;
 	[SerializeField] private SpriteRenderer _spriteRenderer;
 	[SerializeField] private List<Sprite> _hideSprites;
+
+	public enum CharacterType
+	{
+		Hide = 0,	// âBÇÍÇÈêl
+		Seek,		// ãS
+	}
 
 	private Vector3 velocity;
 	private Rigidbody2D rb;
@@ -16,6 +23,8 @@ public class CharacterCtrl : MonoBehaviour
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
+
+		Debug.Log($"CurrentActionÅF{_playerInput.currentActionMap}\n ActiveÅF{_playerInput.currentActionMap.enabled}");
 
 		ChangeRandomSprite();
     }
@@ -31,6 +40,11 @@ public class CharacterCtrl : MonoBehaviour
 
         _spriteRenderer.sprite = _hideSprites[index];
     }
+
+	public void ChangePlayerType(CharacterType type)
+	{
+		_playerInput.SwitchCurrentActionMap(type == CharacterType.Hide ? "Hide" : "Seek");
+	}
 
 	// Input System
 	public void OnMove(InputAction.CallbackContext context)

@@ -108,6 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterCtrl
   _moveSpeed: 5
+  _playerInput: {fileID: 4119062552225838294}
   _spriteRenderer: {fileID: 3885383073565553862}
   _hideSprites:
   - {fileID: -1673993540, guid: 9bca0c131294cbf4aa8cc27c9c36a7a6, type: 3}
@@ -150,7 +151,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 4
 --- !u!114 &4119062552225838294
 MonoBehaviour:
   m_ObjectHideFlags: 0
