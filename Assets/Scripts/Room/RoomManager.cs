@@ -27,9 +27,12 @@ public class RoomManager : MonoBehaviour
         }
 
         if (floorObjects.Count > 0) {
+            int n = Random.Range(7, 10);
             Vector2 positino;
-            for (int i = 0; i < 5; ++i) {
-                positino = new Vector2(Random.Range(-17f, 17f), Random.Range(2f, -10f));
+            for (int i = 0; i < n; ++i) {
+                do {
+                    positino = new Vector2(Random.Range(-17f, 17f), Random.Range(2f, -10f));
+                } while (Physics2D.OverlapCircle(positino, 0.3f));
                 Instantiate(floorObjects[Random.Range(0, floorObjects.Count)], positino, Quaternion.identity, transform);
             }
         }
