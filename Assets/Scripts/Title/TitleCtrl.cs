@@ -3,7 +3,12 @@ using UnityEngine.InputSystem;
 
 public class TitleCtrl : MonoBehaviour
 {
-    public void OnStart(InputAction.CallbackContext context)
+	private void Start()
+	{
+		SoundManager.Instance.PlayBGM("Title");
+	}
+
+	public void OnStart(InputAction.CallbackContext context)
     {
 		if (FadeManager.Instance.IsFading)
 		{
