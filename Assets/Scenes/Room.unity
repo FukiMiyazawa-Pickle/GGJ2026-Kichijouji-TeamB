@@ -532,6 +532,7 @@ MonoBehaviour:
   - {fileID: 9168527638924100099, guid: 5a09488a4d950024fb9d0cb420c2caf4, type: 3}
   floorSprites:
   - {fileID: -1596729571, guid: 22f8100e351cd304f9ef295e84c94c5e, type: 3}
+  - {fileID: -683702072, guid: 22f8100e351cd304f9ef295e84c94c5e, type: 3}
   floorObjects:
   - {fileID: 1094636417017087708, guid: e04d026e35256fb4ebd605a7ed1921f3, type: 3}
   - {fileID: 3279007623447936380, guid: 86068d9044363d74fbf20084870e7c85, type: 3}
