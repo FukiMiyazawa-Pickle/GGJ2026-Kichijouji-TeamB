@@ -47,6 +47,16 @@ public class InGameCtrl : MonoBehaviour
 
     private bool IsGameFinish()
     {
-        return _timerCtrl.CurrentTime <= 0.0f;
+        var allCharaDisable = true;
+        foreach (CharacterCtrl c in _charaList)
+        {
+            if(c.GetPlayerType() == CharacterCtrl.CharacterType.Seek)
+            {
+                continue;
+            }
+            allCharaDisable &= !c.gameObject.activeSelf;
+        }
+
+        return _timerCtrl.CurrentTime <= 0.0f || allCharaDisable;
     }
 }

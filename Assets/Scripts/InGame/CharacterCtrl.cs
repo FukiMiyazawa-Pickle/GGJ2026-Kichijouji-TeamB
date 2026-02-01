@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Windows;
+using static CharacterCtrl;
 using static UnityEngine.EventSystems.EventTrigger;
 
 public class CharacterCtrl : MonoBehaviour
@@ -32,6 +33,8 @@ public class CharacterCtrl : MonoBehaviour
 	private Vector2 moveInput;
 
     private Vector2 facingDirection = Vector2.right;
+    private CharacterType characterType = CharacterType.Hide;
+
 
     private void Awake()
 	{
@@ -64,9 +67,15 @@ public class CharacterCtrl : MonoBehaviour
         _spriteRenderer.sprite = _hideSprites[index];
     }
 
+    public CharacterType GetPlayerType()
+    {
+        return characterType; 
+    }
+
 	public void ChangePlayerType(CharacterType type)
 	{
-		_playerInput.SwitchCurrentActionMap(type == CharacterType.Hide ? "Hide" : "Seek");
+        characterType = type;
+        _playerInput.SwitchCurrentActionMap(type == CharacterType.Hide ? "Hide" : "Seek");
 	}
 
     private void Attack(Vector2 dir)
@@ -99,7 +108,7 @@ public class CharacterCtrl : MonoBehaviour
             {
                 continue;
             }
-            hit.GetComponent<CharacterCtrl>()?.TakeDamage(1);
+            hit.gameObject.transform.parent.GetComponent<CharacterCtrl>()?.TakeDamage(1);
 
             if(!isPlaySe)
             {
