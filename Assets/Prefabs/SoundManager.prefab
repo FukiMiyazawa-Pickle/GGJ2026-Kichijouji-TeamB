@@ -51,9 +51,13 @@ MonoBehaviour:
   _bgmList:
   - tag: Title
     clip: {fileID: 8300000, guid: f476660e0d0c24d4089518b18286aeaf, type: 3}
+  - tag: InGame
+    clip: {fileID: 8300000, guid: 85a0a45e2f64b204e8881ff5819d90ca, type: 3}
+  - tag: Result
+    clip: {fileID: 8300000, guid: b238e9be488b66f44bd42983516f9fcb, type: 3}
   _seList:
   - tag: Hit
-    clip: {fileID: 8300000, guid: f476660e0d0c24d4089518b18286aeaf, type: 3}
+    clip: {fileID: 8300000, guid: 064f3a2041b34624c98c11fc0ce1f729, type: 3}
 --- !u!82 &5058468639779592960
 AudioSource:
   m_ObjectHideFlags: 0

@@ -24,6 +24,8 @@ public class InGameCtrl : MonoBehaviour
         }
 
         _timerCtrl.IsCountdown = true;
+
+        SoundManager.Instance.PlayBGM("InGame");
     }
 
     // Update is called once per frame

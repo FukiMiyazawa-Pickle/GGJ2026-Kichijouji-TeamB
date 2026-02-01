@@ -1,0 +1,46 @@
+{
+    "version": 1,
+    "name": "ResultInputActions",
+    "maps": [
+        {
+            "name": "Result",
+            "id": "4be7c717-32ad-488c-a8a8-edf7e7ed119e",
+            "actions": [
+                {
+                    "name": "Start",
+                    "type": "Button",
+                    "id": "1c54c7b9-3378-499c-87f9-5318b604b1f0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "97157a1e-7ae7-4f58-8d81-a87c3deecbe9",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Start",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f74cf381-3e74-4460-8293-b2282046a64e",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Start",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
