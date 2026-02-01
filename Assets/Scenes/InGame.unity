@@ -994,10 +994,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 854606106318584159, guid: a581ba876aa2a0e488974e6fe42b5f76, type: 3}
-      propertyPath: _gameTime
-      value: 999
-      objectReference: {fileID: 0}
     - target: {fileID: 1811811797738754420, guid: a581ba876aa2a0e488974e6fe42b5f76, type: 3}
       propertyPath: m_Name
       value: Timer
