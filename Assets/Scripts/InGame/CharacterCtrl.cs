@@ -91,13 +91,21 @@ public class CharacterCtrl : MonoBehaviour
             _enemyLayer
         );
 
+        bool isPlaySe = false;
+
         foreach (var hit in hits)
         {
-            if(hit.gameObject == gameObject)
+            if(hit.gameObject == _spriteRenderer.gameObject)
             {
                 continue;
             }
             hit.GetComponent<CharacterCtrl>()?.TakeDamage(1);
+
+            if(!isPlaySe)
+            {
+                SoundManager.Instance.PlaySE("Hit");
+                isPlaySe = true;
+            }
         }
 
         SpawnAttackEffect(attackCenter, facingDirection, _hitRadius);
@@ -137,6 +145,27 @@ public class CharacterCtrl : MonoBehaviour
                 (Vector3)(dir.normalized * radius * 0.5f);
         }
     }
+
+    private void OnDrawGizmos()
+    {
+        if (_rb == null || _attackPoint == null) return;
+
+        // Rigidbody2D.position を基準
+        Vector2 basePos = _rb.position;
+
+        // AttackPoint のローカル → ワールド方向
+        Vector2 localOffset = _attackPoint.localPosition;
+        Vector2 worldOffset = transform.TransformDirection(localOffset);
+
+        Vector2 attackCenter =
+            basePos +
+            worldOffset +
+            facingDirection * _attackRange;
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackCenter, _hitRadius);
+    }
+
 
     // Input System
     public void OnMove(InputAction.CallbackContext context)

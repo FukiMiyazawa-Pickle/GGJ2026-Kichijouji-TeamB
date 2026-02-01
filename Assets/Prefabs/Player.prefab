@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8137116018361859030}
   - component: {fileID: 665134424493781365}
   - component: {fileID: 4436098894783757279}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1533619704257125323}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AttackEffectSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 7722252477382949798}
   - component: {fileID: 2250954749937902693}
   - component: {fileID: 9155000971759045612}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,7 +249,7 @@ MonoBehaviour:
   _playerInput: {fileID: 9155000971759045612}
   _hp: 3
   _attackRange: 1.2
-  _hitRadius: 2.5
+  _hitRadius: 1.75
   _enemyLayer:
     serializedVersion: 2
     m_Bits: 64

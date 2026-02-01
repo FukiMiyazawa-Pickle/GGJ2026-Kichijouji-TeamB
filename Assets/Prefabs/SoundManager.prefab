@@ -51,7 +51,9 @@ MonoBehaviour:
   _bgmList:
   - tag: Title
     clip: {fileID: 8300000, guid: f476660e0d0c24d4089518b18286aeaf, type: 3}
-  _seList: []
+  _seList:
+  - tag: Hit
+    clip: {fileID: 8300000, guid: f476660e0d0c24d4089518b18286aeaf, type: 3}
 --- !u!82 &5058468639779592960
 AudioSource:
   m_ObjectHideFlags: 0
